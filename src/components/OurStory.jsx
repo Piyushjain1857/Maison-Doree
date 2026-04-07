@@ -1,8 +1,10 @@
 import React from 'react'
 import '../styles/styles.css'
-
+import { useData } from '../../contexts/DataContext.jsx'
 
 const OurStory = () => {
+  const data = useData();
+  const { storyConfig } = data;
     return (
         <div>
             <section className="story" id="story">
@@ -11,34 +13,24 @@ const OurStory = () => {
                         <div className="story-content">
                             <p className="text-label story-label">Our Heritage</p>
                             <h2 className="heading-display story-title">
-                                Three Generations of Golden Mastery
+                                {storyConfig.title}
                             </h2>
-                            <p className="text-body story-text">
-                                Founded in 1857 by master goldsmith Henri Beaumont,
-                                Maison Dorée has remained a family atelier dedicated to
-                                the art of fine gold jewelry. What began in a small
-                                workshop in the heart of the jewelry district has
-                                blossomed into a celebrated house known for impeccable
-                                craftsmanship.
-                            </p>
-                            <p className="text-body story-text">
-                                Today, our third-generation artisans continue the
-                                tradition, blending time-honored techniques with
-                                contemporary design sensibilities. Every piece that
-                                leaves our workshop carries the weight of this legacy.
-                            </p>
+                            {storyConfig.texts.map((text, index) => (
+                              <p key={index} className="text-body story-text">
+                                {text}
+                              </p>
+                            ))}
                             <div className="story-signature">
-                                <p className="signature-name">Isabelle Beaumont</p>
-                                <p className="signature-title">Creative Director</p>
+                                <p className="signature-name">{storyConfig.signature.name}</p>
+                                <p className="signature-title">{storyConfig.signature.title}</p>
                             </div>
                         </div>
                         <div className="story-images">
-                            <div className="story-image">
-                                <img src="images/maison-doree-05.jpg" alt="Goldsmith at work" />
-                            </div>
-                            <div className="story-image">
-                                <img src="images/maison-doree-06.jpg" alt="Jewelry crafting detail" />
-                            </div>
+                            {storyConfig.images.map((img, index) => (
+                              <div key={index} className="story-image">
+                                <img src={img} alt={`Story image ${index + 1}`} />
+                              </div>
+                            ))}
                         </div>
                     </div>
                 </div>

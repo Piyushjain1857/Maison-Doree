@@ -1,4 +1,5 @@
 import React from "react";
+import { DataProvider } from "./contexts/DataContext.jsx";
 import Navbar from "./components/Navbar.jsx";
 import HeroSection from "./components/HeroSection.jsx";
 import Features from "./components/Features.jsx";
@@ -10,9 +11,8 @@ import ContactUs from "./components/ContactUs.jsx";
 import Footer from "./components/Footer.jsx";
 
 const App = () => {
-  // logic here
   return (
-    <>
+    <DataProvider>
       <Navbar />
       <HeroSection />
       <Features />
@@ -22,7 +22,7 @@ const App = () => {
       <Testimonials />
       <ContactUs />
       <Footer />
-    </>
+    </DataProvider>
   );
 };
 

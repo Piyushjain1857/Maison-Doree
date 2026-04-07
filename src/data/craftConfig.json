@@ -1,0 +1,16 @@
+{
+  "title": "Crafted by Hand, Treasured Forever",
+  "text": "Each Maison Dorée piece undergoes a meticulous journey from concept to completion. Our artisans employ traditional goldsmithing techniques passed down through generations, ensuring every curve, texture, and finish meets our exacting standards.",
+  "list": [
+    "Hand-selected materials from ethical sources",
+    "Traditional lost-wax casting and hand-forging",
+    "Multiple quality inspections at every stage",
+    "Personalized finishing and custom sizing"
+  ],
+  "stats": [
+    { "number": "37", "label": "Years of Excellence" },
+    { "number": "12", "label": "Master Artisans" },
+    { "number": "8K+", "label": "Pieces Created" }
+  ],
+  "img": "images/maison-doree-07.jpg"
+}

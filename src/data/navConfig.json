@@ -1,0 +1,7 @@
+[
+  { "id": "collections", "label": "Collections", "href": "#collections" },
+  { "id": "story", "label": "Our Story", "href": "#story" },
+  { "id": "craftsmanship", "label": "Craftsmanship", "href": "#craftsmanship" },
+  { "id": "contact", "label": "Visit Us", "href": "#contact" },
+  { "id": "appointment", "label": "Book Appointment", "href": "#contact", "cta": true }
+]

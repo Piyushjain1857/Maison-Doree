@@ -1,46 +1,38 @@
 import React from 'react'
 import '../styles/styles.css'
-
+import { useData } from '../../contexts/DataContext.jsx'
 
 const Features = () => {
+  const data = useData();
+  const { featuredConfig } = data;
   return (
     <div>
       <section className="featured-piece">
         <div className="container">
           <div className="featured-grid">
-            <div className="featured-image-wrapper">
+              <div className="featured-image-wrapper">
               <div className="featured-image">
-                <img src="images/maison-hero-02.jpg" alt="Handcrafted gold necklace" />
+                <img src={featuredConfig.img} alt={featuredConfig.title} />
               </div>
-              <div className="featured-badge">New Arrival</div>
+              <div className="featured-badge">{featuredConfig.badge}</div>
             </div>
             <div className="featured-content">
               <p className="text-label featured-label">Featured Piece</p>
               <h2 className="heading-display featured-title">
-                Aurora Pendant
+                {featuredConfig.title}
               </h2>
               <p className="text-body featured-description">
-                Inspired by the ethereal dance of northern lights,
-                the Aurora Pendant captures the fluid movement of light
-                through hand-hammered 22-karat gold. Each surface catches
-                and reflects light differently, creating a mesmerizing
-                display of golden hues.
+                {featuredConfig.description}
               </p>
               <div className="featured-details">
-                <div className="detail-row">
-                  <span className="detail-label">Material</span>
-                  <span className="detail-value">22K Yellow Gold</span>
-                </div>
-                <div className="detail-row">
-                  <span className="detail-label">Weight</span>
-                  <span className="detail-value">18.5 grams</span>
-                </div>
-                <div className="detail-row">
-                  <span className="detail-label">Chain Length</span>
-                  <span className="detail-value">18 inches (adjustable)</span>
-                </div>
+                {featuredConfig.details.map((detail, index) => (
+                  <div key={index} className="detail-row">
+                    <span className="detail-label">{detail.label}</span>
+                    <span className="detail-value">{detail.value}</span>
+                  </div>
+                ))}
               </div>
-              <p className="featured-price">$4,850</p>
+              <p className="featured-price">{featuredConfig.price}</p>
               <a href="#contact" className="btn-primary">Inquire About This Piece</a>
             </div>
           </div>

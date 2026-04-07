@@ -1,0 +1,12 @@
+{
+  "title": "Aurora Pendant",
+  "description": "Inspired by the ethereal dance of northern lights, the Aurora Pendant captures the fluid movement of light through hand-hammered 22-karat gold. Each surface catches and reflects light differently, creating a mesmerizing display of golden hues.",
+  "details": [
+    { "label": "Material", "value": "22K Yellow Gold" },
+    { "label": "Weight", "value": "18.5 grams" },
+    { "label": "Chain Length", "value": "18 inches (adjustable)" }
+  ],
+  "price": "$4,850",
+  "img": "images/maison-hero-02.jpg",
+  "badge": "New Arrival"
+}

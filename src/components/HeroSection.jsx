@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/styles.css'
+import { useData } from '../../contexts/DataContext.jsx'
 
 const HeroSection = () => {
 
+  const data = useData();
+  const { heroConfig: slides } = data;
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    { title: "Serpentine Collection", price: "From $2,400", img: "images/maison-hero-01.jpg" },
-    { title: "Aurora Pendant", price: "From $4,850", img: "images/maison-hero-02.jpg" },
-    { title: "Heritage Rings", price: "From $3,200", img: "images/maison-hero-03.jpg" }
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {

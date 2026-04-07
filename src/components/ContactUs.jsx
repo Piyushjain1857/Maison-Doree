@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import '../styles/styles.css'
-
+import { useData } from '../../contexts/DataContext.jsx'
 
 const ContactUs = () => {
+  const data = useData();
+  const { siteConfig } = data;
   useEffect(() => {
     const form = document.getElementById('appointmentForm');
     if (form) {
@@ -40,23 +42,17 @@ const ContactUs = () => {
               <div className="contact-details">
                 <div className="contact-item">
                   <p className="contact-item-label">Address</p>
-                  <p className="contact-item-value">
-                    490/7 Jawahar Nagar<br />
-                    Gurugram:- 122001
-                  </p>
+                  <p className="contact-item-value" dangerouslySetInnerHTML={{ __html: siteConfig.address }} />
                 </div>
                 <div className="contact-item">
                   <p className="contact-item-label">Hours</p>
-                  <p className="contact-item-value">
-                    Tuesday – Saturday, 10:00 AM to 06:00 PM<br />
-                    Sunday – Monday, By Appointment
-                  </p>
+                  <p className="contact-item-value" dangerouslySetInnerHTML={{ __html: siteConfig.hours }} />
                 </div>
                 <div className="contact-item">
                   <p className="contact-item-label">Contact</p>
                   <p className="contact-item-value">
-                    <a href="tel:+918595850153">+91 8595850153</a><br />
-                    <a href="mailto:Piyushjain@maisondoree.com">Piyushjain@maisondoree.com</a>
+                    <a href={`tel:${siteConfig.phone.replace(/\\s+/g, '')}`}>{siteConfig.phone}</a><br />
+                    <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
                   </p>
                 </div>
               </div>

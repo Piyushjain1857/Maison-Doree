@@ -1,24 +1,28 @@
 import React from 'react'
 import '../styles/styles.css'
-
+import { useData } from '../../contexts/DataContext.jsx'
 
 const Footer = () => {
+  const data = useData();
+  const { siteConfig, navConfig } = data;
+  const collectionsNav = navConfig.slice(0, 5); // First 5 for collections column
+  const companyNav = navConfig.slice(1, 6); // Adjusted for company column
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer-grid">
           {/* Column 1: Brand & Contact */}
           <div className="footer-brand">
-            <p className="footer-logo">Maison <span>Dorée</span></p>
+            <p className="footer-logo">{siteConfig.title}</p>
             <p className="footer-tagline">
               Handcrafted gold jewelry of exceptional quality and timeless elegance. Family-owned atelier
               since 1857.
             </p>
             <div className="footer-contact-info">
-              <p>490/7 Jawahar Nagar</p>
-              <p>Gurugram:- 122001</p>
-              <p><a href="tel:+918595850153">+91 8595850153</a></p>
-              <p><a href="mailto:Piyushjain@maisondoree.com">Piyushjain@maisondoree.com</a></p>
+              <p>{siteConfig.address.split('<br />')[0]}</p>
+              <p>{siteConfig.address.split('<br />')[1]}</p>
+              <p><a href={`tel:${siteConfig.phone.replace(/\\s+/g, '')}`}>{siteConfig.phone}</a></p>
+              <p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
             </div>
           </div>
 
@@ -26,11 +30,9 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-column-title">Collections</h4>
             <ul className="footer-links">
-              <li><a href="#collections">All Collections</a></li>
-              <li><a href="#">Bridal</a></li>
-              <li><a href="#">Everyday Elegance</a></li>
-              <li><a href="#">Statement Pieces</a></li>
-              <li><a href="#">Men's Collection</a></li>
+              {collectionsNav.map((item) => (
+                <li key={item.id}><a href={item.href}>{item.label}</a></li>
+              ))}
             </ul>
           </div>
 
@@ -38,11 +40,9 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-column-title">Company</h4>
             <ul className="footer-links">
-              <li><a href="#story">Our Story</a></li>
-              <li><a href="#craftsmanship">Craftsmanship</a></li>
-              <li><a href="#contact">Visit Us</a></li>
-              <li><a href="#">Custom Design</a></li>
-              <li><a href="#">Care Guide</a></li>
+              {companyNav.map((item) => (
+                <li key={item.id}><a href={item.href}>{item.label}</a></li>
+              ))}
             </ul>
           </div>
 
