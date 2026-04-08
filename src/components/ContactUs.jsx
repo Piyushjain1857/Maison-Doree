@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import '../styles/styles.css'
-import { useData } from '../../contexts/DataContext.jsx'
+import { useData } from '../../contexts/DataContext'
 
 const ContactUs = () => {
   const data = useData();

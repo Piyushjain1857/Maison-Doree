@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/styles.css'
-import { useData } from '../../contexts/DataContext.jsx'
+import { useData } from '../../contexts/DataContext'
 
 const HeroSection = () => {
 
