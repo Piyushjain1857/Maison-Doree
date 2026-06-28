@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useInquiry } from "../context/InquiryContext";
+import RingViewer3D from "./RingViewer3D";
 import "../styles/styles.css";
 
 const Craftsmanship = () => {
@@ -102,18 +103,9 @@ const Craftsmanship = () => {
               <p className="text-label">Interactive Preview</p>
             </div>
 
-            {/* Simulated Ring Rendering Graphic */}
+            {/* 3D Ring Rendering Graphic */}
             <div className="ring-rendering-box">
-              <div className="rendering-ring-outer">
-                <div
-                  className={`rendering-ring-band finish-${finish}`}
-                  style={{ borderColor: metalsInfo[metal].color }}
-                >
-                  {gem !== "none" && (
-                    <div className={`rendering-gem gem-${gem}`} title={gemsInfo[gem].label} />
-                  )}
-                </div>
-              </div>
+              <RingViewer3D metal={metal} finish={finish} gem={gem} />
               <div className="rendering-details">
                 <span className="rendering-spec-tag">
                   {metalsInfo[metal].label}
