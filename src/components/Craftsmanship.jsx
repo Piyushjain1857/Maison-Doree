@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useInquiry } from "../context/InquiryContext";
-import RingViewer3D from "./RingViewer3D";
+import RingViewer3D, { RingFallback2D } from "./RingViewer3D";
+import ErrorBoundary from "./ErrorBoundary";
 import "../styles/styles.css";
 
 const Craftsmanship = () => {
@@ -105,7 +106,9 @@ const Craftsmanship = () => {
 
             {/* 3D Ring Rendering Graphic */}
             <div className="ring-rendering-box">
-              <RingViewer3D metal={metal} finish={finish} gem={gem} />
+              <ErrorBoundary fallback={<RingFallback2D metal={metal} finish={finish} gem={gem} />}>
+                <RingViewer3D metal={metal} finish={finish} gem={gem} />
+              </ErrorBoundary>
               <div className="rendering-details">
                 <span className="rendering-spec-tag">
                   {metalsInfo[metal].label}
